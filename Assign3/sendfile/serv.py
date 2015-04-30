@@ -5,8 +5,8 @@ class Server:
 	def __init__(self):
 		self._listen_port = 1234
 		self._welcome_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		self._client_sock
-		self._addr
+		self._client_sock = None
+		self._addr = None
 
 
 	def get_port(self):
@@ -48,7 +48,7 @@ class Server:
 		pass
 
 def main()
-	serv = Server('localhost', 1234)
+	serv = Server()
 
 
 if __name__ == '__main__':
