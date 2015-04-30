@@ -40,15 +40,23 @@ class Server:
 		print("Accepted connection from client: {}".format(addr))
 		print("/n")
 
+	def bind_port(self):
+		client_sock.bind('', self.listen_port)
+
 	def wait_for_command(self):
+		while 1:
+			self.wait_for_connections()
 		#file_data = ""
 		#recv_buff = ""
 		#string_size = 0
 		#string_size_buff = ""
 		pass
 
-def main()
+def main():
 	serv = Server()
+	serv.bind_port()
+	serv.hey_listen()
+	serv.wait_for_command
 
 
 if __name__ == '__main__':

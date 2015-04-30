@@ -26,28 +26,44 @@ class Client:
 		client_sock.connect(server_addr, server_port)
 
 	def get_user_command(self):
-		return input("ftp> ")
+		"""returns a list of strings"""
+		return split(input("ftp> "))
+
+	def verify_input(self, cmd):
+		pass
 
 	def send_to_server(self, info):
 		client_sock.send(info)
 
 	def verify_command(self, cmd):
-		if cmd[0:3] == 'lsl':
+		if cmd[0] == 'lsl':
+			self.perform_lsl(cmd)
 			#client performs an ls command on its list of files
-			pass
-		if cmd[0:3] == 'get':
+		if cmd[0] == 'get':
 			#client requests file from server
-			pass
-		if cmd[0:3] == 'put':
+			self.perform_get(cmd)
+		if cmd[0] == 'put':
 			#client places file to server
-			pass
-		if cmd[0:2] == 'ls':
+			self.perform_put(cmd)
+		if cmd[0] == 'ls':
 			#request server to perform an ls command on its current directory
-			pass
+			self.perform_ls(cmd)
 
+	def perform_lsl(self, cmd):
+		pass
 
-def main()
+	def perform_get(self, cmd):
+		pass
+
+	def perform_put(self, cmd):
+		pass
+
+	def perform_ls(self, cmd):
+		pass
+
+def main():
 	client = Client('localhost', 1234)
+	cmd = client.get_user_command()
 
 
 if __name__ == '__main__':
